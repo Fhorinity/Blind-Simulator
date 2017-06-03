@@ -12,11 +12,14 @@ public class DistanceCheck : MonoBehaviour
     private bool pitchCounter;
     public float tmpPitch;
     public AudioClip beep;
+    public Animation anim;
 
     void Start()
     {
         pitchCounter = true;
         sound = GetComponent<AudioSource>();
+        anim = GetComponent<Animation>();
+      //  anim.Play();
         objects = GameObject.FindGameObjectsWithTag("Object");
         print(pitch);
         sound.Play();
@@ -26,6 +29,8 @@ public class DistanceCheck : MonoBehaviour
     }
     void Update()
     {
+
+        
         float closestDistance = Mathf.Infinity;
         foreach (GameObject obj in objects)
         {
