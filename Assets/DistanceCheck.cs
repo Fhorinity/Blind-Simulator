@@ -5,32 +5,19 @@ public class DistanceCheck : MonoBehaviour
     public GameObject blindStick;
     public GameObject[] objects;
     public float distance;
-    [HideInInspector]
-    private float pitch = 1f;
     public AudioSource sound;
     public GameObject closest = null;
-    private bool pitchCounter;
-    public float tmpPitch;
     public AudioClip beep;
     public Animation anim;
 
     void Start()
     {
-        pitchCounter = true;
         sound = GetComponent<AudioSource>();
         anim = GetComponent<Animation>();
-      //  anim.Play();
         objects = GameObject.FindGameObjectsWithTag("Object");
-        print(pitch);
-        sound.Play();
-        sound.pitch = 1;
-       // sound.pitch = pitch;
-        print(pitch);
     }
     void Update()
-    {
-
-        
+    {      
         float closestDistance = Mathf.Infinity;
         foreach (GameObject obj in objects)
         {
@@ -41,58 +28,151 @@ public class DistanceCheck : MonoBehaviour
                 closestDistance = distance;
             }
         }
-        // Varable closest now contains a reference to the object closet to 'blindstick'
+        // Variable closest now contains a reference to the object closet to 'blindstick'
         distance = Vector3.Distance(blindStick.transform.position, closest.transform.position);
         // Checks if closest object against distance parameters in Distance_Detection();
-        Checker();
         Distance_Detection();
-    }
-    void Checker()
-    {
-        //if (pitchCounter)
-        //{
-        //    pitch++;
-        //}
-        //else if (!pitchCounter)
-        //{
-        //    pitch--;
-        //}
     }
     void Distance_Detection()
     {
-          tmpPitch = pitch;
         if (distance > 5)
         {
             sound.pitch = 0f;
-            //sound.Stop();
-        }
-        
+        }      
         if (distance == 5)
         {
-            // pitchCounter = true;
-            //sound.Play();
-            sound.pitch = 1f;
+            sound.pitch = 0.1f;
             Debug.Log("Play Low tone"); //1
         }
-        if (distance < 5 && distance > 4.75)
+        if (distance < 5 && distance > 4.95)
         {
-            sound.pitch = 1.1f;
+            sound.pitch = 0.2f;
             Debug.Log("Increase pitch 1 by 0.1"); //1.1
         }
-        if (distance < 4.75 && distance > 4.5)
+        if (distance < 4.95 && distance > 4.9)
+        {
+            sound.pitch = 0.3f;
+            Debug.Log("Increase pitch 1 by 0.1"); //1.1
+        }
+        if (distance < 4.9 && distance > 4.85)
+        {
+            sound.pitch = 0.4f;
+            Debug.Log("Increase pitch 1 by 0.1"); //1.1
+        }
+        if (distance < 4.85 && distance > 4.8)
+        {
+            sound.pitch = 0.5f;
+            Debug.Log("Increase pitch 1 by 0.1"); //1.1
+        }
+        if (distance < 4.8 && distance > 4.75)
+        {
+            sound.pitch = 0.6f;
+            Debug.Log("Increase pitch 1 by 0.1"); //1.1
+        }
+        if (distance < 4.75 && distance > 4.7)
+        {
+            sound.pitch = 0.7f;
+            Debug.Log("Increase pitch 2 by 0.1"); //1.2
+        }
+        if (distance < 4.7 && distance > 4.65)
+        {
+            sound.pitch = 0.8f;
+            Debug.Log("Increase pitch 2 by 0.1"); //1.2
+        }
+        if (distance < 4.65 && distance > 4.6)
+        {
+            sound.pitch = 0.9f;
+            Debug.Log("Increase pitch 2 by 0.1"); //1.2
+        }
+        if (distance < 4.6 && distance > 4.55)
+        {
+            sound.pitch = 1f;
+            Debug.Log("Increase pitch 2 by 0.1"); //1.2
+        }
+        if (distance < 4.55 && distance > 4.5)
+        {
+            sound.pitch = 1.1f;
+            Debug.Log("Increase pitch 2 by 0.1"); //1.2
+        }
+        if (distance < 4.5 && distance > 4.45)
         {
             sound.pitch = 1.2f;
             Debug.Log("Increase pitch 2 by 0.1"); //1.2
         }
-        if (distance < 4.5 && distance > 4.25)
+        if (distance < 4.45 && distance > 4.4)
         {
             sound.pitch = 1.3f;
-            Debug.Log("Increase pitch 3 by 0.1"); //1.3
+            Debug.Log("Increase pitch 2 by 0.1"); //1.2
         }
-        if (distance < 4.25 && distance > 4)
+        if (distance < 4.4 && distance > 4.35)
         {
             sound.pitch = 1.4f;
+            Debug.Log("Increase pitch 2 by 0.1"); //1.2
+        }
+        if (distance < 4.35 && distance > 4.3)
+        {
+            sound.pitch = 1.5f;
+            Debug.Log("Increase pitch 2 by 0.1"); //1.2
+        }
+        if (distance < 4.3 && distance > 4.25)
+        {
+            sound.pitch = 1.6f;
+            Debug.Log("Increase pitch 3 by 0.1"); //1.3
+        }
+        if (distance < 4.25 && distance > 4.2)
+        {
+            sound.pitch = 1.7f;
             Debug.Log("Increase pitch 4 by 0.1"); //1.4
+        }
+        if (distance < 4.2 && distance > 4.15)
+        {
+            sound.pitch = 1.8f;
+            Debug.Log("Increase pitch 2 by 0.1"); //1.2
+        }
+        if (distance < 4.15 && distance > 4.1)
+        {
+            sound.pitch = 1.9f;
+            Debug.Log("Increase pitch 2 by 0.1"); //1.2
+        }
+        if (distance < 4.1 && distance > 4.05)
+        {
+            sound.pitch = 2f;
+            Debug.Log("Increase pitch 2 by 0.1"); //1.2
+        }
+        if (distance < 4.05 && distance > 4)
+        {
+            sound.pitch = 0.11f;
+            Debug.Log("Increase pitch 2 by 0.1"); //1.2
+        }
+        if (distance < 4.55 && distance > 4.5)
+        {
+            sound.pitch = 0.11f;
+            Debug.Log("Increase pitch 2 by 0.1"); //1.2
+        }
+        if (distance < 4.55 && distance > 4.5)
+        {
+            sound.pitch = 0.11f;
+            Debug.Log("Increase pitch 2 by 0.1"); //1.2
+        }
+        if (distance < 4.55 && distance > 4.5)
+        {
+            sound.pitch = 0.11f;
+            Debug.Log("Increase pitch 2 by 0.1"); //1.2
+        }
+        if (distance < 4.55 && distance > 4.5)
+        {
+            sound.pitch = 0.11f;
+            Debug.Log("Increase pitch 2 by 0.1"); //1.2
+        }
+        if (distance < 4.55 && distance > 4.5)
+        {
+            sound.pitch = 0.11f;
+            Debug.Log("Increase pitch 2 by 0.1"); //1.2
+        }
+        if (distance < 4.55 && distance > 4.5)
+        {
+            sound.pitch = 0.11f;
+            Debug.Log("Increase pitch 2 by 0.1"); //1.2
         }
         if (distance < 4 && distance > 3.75)
         {
@@ -152,7 +232,6 @@ public class DistanceCheck : MonoBehaviour
         if (distance < 1.25 && distance > 1 || distance < 1)
         {
             sound.pitch = 2.6f;
-            //  pitchCounter = false;
             Debug.Log("Increase pitch 16 by 0.1"); //2.6    //This is the closest it can get to stick.
         }
     }
