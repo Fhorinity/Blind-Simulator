@@ -17,7 +17,7 @@ public class PitchCheck : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-        pitch = check.pitch;
+        pitch = check.tmpPitch;
         distance = check.distance;
         closet = check.closest;
     }
