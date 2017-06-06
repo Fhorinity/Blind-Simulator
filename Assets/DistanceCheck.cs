@@ -18,13 +18,11 @@ public class DistanceCheck : MonoBehaviour
         haptic = GetComponent<AudioSource>();
         anim = GetComponent<Animation>();
         objects = GameObject.FindGameObjectsWithTag("Object");
-        
-        
     }
     void Update()
     {
         //haptic.clip = hapt_clip[num];
-        //haptic.Play();
+        //haptic.Play();      
         float closestDistance = Mathf.Infinity;
         foreach (GameObject obj in objects)
         {
@@ -77,7 +75,7 @@ public class DistanceCheck : MonoBehaviour
         {
             sound.pitch = 0.25f;
             num = 5;
-            Debug.Log("0.25 Pitch"); 
+            Debug.Log("0.25 Pitch");
         }
         if (distance < 4.75 && distance > 4.7)
         {
@@ -521,13 +519,13 @@ public class DistanceCheck : MonoBehaviour
         {
             sound.pitch = 3.95f;
             num = 79;
-            Debug.Log("3.95 Pitch"); 
+            Debug.Log("3.95 Pitch");
         }
         if (distance < 1.05 && distance > 1 || distance <= 1)
         {
             sound.pitch = 4f;
             num = 80;
-            Debug.Log("4 Pitch"); 
+            Debug.Log("4 Pitch");
         }
     }
 }
